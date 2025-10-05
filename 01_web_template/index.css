@@ -184,3 +184,24 @@ h1{
 #grid4{
     background-color: bisque;
 }
+
+#page5{
+    grid-template-columns: 1fr 1fr;
+}
+
+#page5 .right {
+    grid-template-rows: 1fr 1fr;
+}
+
+#page5 .right .top {
+    background: coral;
+}
+#page5 .right .bottom {
+    background: black;
+    color:white;
+}
+
+#page5 .left {
+    background: palegoldenrod;
+}
+
