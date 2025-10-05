@@ -160,7 +160,7 @@ h1{
 }
 
 #page3 .right .box .bottom{
-    background-image: url(./assets/city.jpg);
+    background-image: url(./assets/Seashell.jpg);
     background-size: cover;
 }
 
@@ -205,3 +205,80 @@ h1{
     background: palegoldenrod;
 }
 
+#page6 {
+   grid-template-columns: 1fr 1fr;
+   display: flex;
+}
+
+#page6 .right{
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    width: 30%;
+    height: 100vh;
+    
+.row1 { background-color: lightcoral; }
+.row2 { background-color: lightblue; }
+.row3 { background-color: lightgreen; }
+.row4 { background-color: lightgoldenrodyellow; }
+.row5 { background-color: lightpink; }
+
+}   
+
+#page6 .left {
+    width: 70%;
+    background-color:darkslategray;
+}
+
+#page7{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+#page7 .topleft {
+    background-color: sandybrown;
+}
+
+#page7 .topright {
+    background-color:darkslateblue;
+}
+
+#page7 .downleft {
+    background-color: turquoise;
+}
+
+#page7 .downright {
+    background-color: cadetblue;
+}
+
+#page8 {
+    grid-template-columns: 1fr 1fr;
+    display: flex;
+}
+
+#page8 .left {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height:100vh;
+
+.c1 { background-color: lightcoral; }
+.c2 { background-color: lightblue; }
+.c3 { background-color: lightgreen; }
+.c4 { background-color: khaki; }
+.c5 { background-color: lightpink; }
+.c6 { background-color: plum; }
+.c7 { background-color: lightsalmon; }
+.c8 { background-color: lightseagreen; }
+}
+
+#page8 .right{
+grid-template-rows: 1fr 1fr;
+
+}
+
+#page8 .topright{
+    background-color: midnightblue;
+}
+
+#page8 .downright {
+    background-color: rebeccapurple;
+}   
