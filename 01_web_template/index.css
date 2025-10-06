@@ -57,6 +57,7 @@ color:white;
 }
 
 .sidebar a {
+    cursor: pointer;
     font-size: 1.5rem;
     display: block;
     text-decoration: none;
