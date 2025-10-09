@@ -1,11 +1,12 @@
-var currentPage = '#page5'
+var currentPage ='#page5'
 
-//P5 setup() bliver kaldt EN gang før siden vises
+//P5 setup() bliver kaldt en gang føre siden vises
 function setup(){
     console.log('P5 setup kaldt')
-    //sæt event listerners op på menu
-    var allMenuItems = selectAll('.sidebar a')
-    allMenuItems.map(
+    //set event listerers op på menu
+   var allMenuItems = selectAll('.sidebar a')
+    console.log(allMenuItems)
+    allMenuItems.map( 
         function(item){
             item.mousePressed(
                 function(){
@@ -17,8 +18,8 @@ function setup(){
 }
 
 
-function shiftPage (newPage){
-    select(currentPage) .removeClass('show')
+function shiftPage(newPage){
+    select(currentPage).removeClass('show')
     select(newPage).addClass('show')
     currentPage = newPage
 }
