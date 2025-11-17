@@ -144,13 +144,13 @@ h1{
 
 #page2{
     overflow: scroll;
-    place-items: unset;
 }
 
 .parallax{
-    height: 100vw;
+    min-height: 100vw;
     background-attachment: fixed;
     background-size: cover;
+    color: white;
 }
 
 .background1{

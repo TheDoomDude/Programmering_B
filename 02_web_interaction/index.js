@@ -19,6 +19,16 @@ function setup() {
         }
     })
 
+    //P5 button
+    var MyButton = createButton('Button created with Javascript')
+    //Læg den ind i side 5
+    select('#page5').child(MyButton)
+    //Lav en event listener
+    MyButton.mousePressed( ()=>{
+        shiftPage('#page1')
+    })
+
+
     //Drop Downs
     var theDropdown = select('#theDropdown')
     //Event listener: changed
