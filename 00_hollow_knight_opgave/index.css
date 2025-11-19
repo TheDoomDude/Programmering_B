@@ -3,7 +3,7 @@
 
 
 body{
-    background-color: blanchedalmond;
+    background-color: gray;
     font-family: "Open Sans";
     padding:0;
     margin:0;
@@ -27,7 +27,7 @@ body{
     top:1rem;
     cursor: pointer;
     font-size:2rem;
-    color:black;
+    color:white;
     z-index:3;
    transition: color 0.5 ease-in-out;
     
@@ -113,7 +113,7 @@ h1{
 }
 
 #page1{
-    background-image: url(./assets/forest.jpg);
+    background-image: url(./assets/Hollow.png);
     background-size: cover;
     background-attachment: fixed;
 }
@@ -154,8 +154,72 @@ h1{
 }
 
 .background1{
-    background-image: url(./assets/bird.jpg);
+    background-image: url(./assets/knight.jpg);
+    color: black;
 }
 .background2{
-    background-image: url(./assets/forest.jpg);
+    background-image: url(./assets/Hornet.png);
+    color: black;
+}
+.background3{
+    background-image: url(./assets/Cornifer.png);
+    color:white;
+}
+.background4{
+    background-image: url(./assets/Zote.png);
+    color: white;
+}
+.background5{
+    background-image: url(./assets/Stag.jpg);
+    color: white;
+}
+.background6{
+    background-image: url(./assets/manymore.png);
+    color: white;
+}
+
+
+body {
+    transition: background-image 0.7s ease-in-out; 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    min-height: 100vh; 
+    margin: 0;
+}
+
+
+.Dirtmouth {
+    background-image: url('assets/Dirtmouth.png');
+}
+
+
+.Greenpath {
+    background-image: url('assets/Greenpath.jpg');
+}
+
+
+.Cityoftears {
+    background-image: url('assets/cityoftears.jpg');
+}
+
+.Crystalpeak {
+    background-image: url('assets/Crystalpeak.jpg');
+}
+.Hive {
+    background-image: url('assets/Hive.png');
+}
+.Abyss {
+    background-image: url('assets/Abyss.png');
+}
+
+
+
+
+#page5 video {
+position: absolute;
+min-width: 100%;
+min-height: 100%;
+object-fit: cover;
+z-index: -1;
 }
