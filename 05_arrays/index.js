@@ -1,5 +1,38 @@
-var currentPage ='#page2'
+var currentPage ='#page4'
 var listeInput, listeHeading, listeButton, listeContainer
+var removeListe 
+
+const fugle = [
+  "solsort","musvit","blåmejse","skovspurv","gråspurv","bogfinke","grønirisk",
+  "stillits","dompap","gærdesmutte","rødhals","sjagger","ringdue","bydue",
+  "hættemåge","sildemåge","svartbag","stormmåge","gråkrage","råge","allike",
+  "skade","husskade","nøddekrige","hærfugl","isfugl","svalehale","landsvale",
+  "bysvale","digesvale","tornsanger","munk","gransanger","løvsanger",
+  "rørsanger","sivsanger","havesanger","gulspurv","rørspurv","snespurv",
+  "korttået lærke","sanglærke","toplærke","bomlærke","piber","engpiber",
+  "skovpiber","bjergpiber","hvid vipstjert","gul vipstjert","citronvipstjert",
+  "vintergærdesmutte","sortstrubet bynkefugl","stenskvæt","buskskvæt",
+  "sortstrubet bynkefugl","nattergal","blåhals","rødstjert","husrødstjert",
+  "broget fluesnapper","grå fluesnapper","lille fluesnapper",
+  "sortmejse","topmejse","sortstrubet mejse","fyrremejse","sumpmejse",
+  "skægmejse","halemejse","pirol","silkehale","tornirisk","bjergirisk",
+  "lille korsnæb","stor korsnæb","hvidvinget korsnæb","kernebider",
+  "spurvehøg","duehøg","musvåge","fjeldvåge","hvepsevåge","rørhøg",
+  "blå kærhøg","rød glente","sort glente","havørn","kongeørn",
+  "tårnfalk","lærkefalk","jagtfalk","vandrefalk","slørugle",
+  "natugle","skovhornugle","hornugle","kirkeugle","spurveugle",
+  "perleugle","hjejle","stor regnspove","lille regnspove","brushane",
+  "rødben","sortklire","grønbenet rørhøne","hvidklire","mudderklire",
+  "dobbeltbekkasin","enkeltbekkasin","tinksmed","klyde","præstekrave",
+  "stor præstekrave","hjejle","strandskade","tejst","alk","lomvie",
+  "søkonge","lunde","skarv","topskarv","silkehejre","fiskehejre",
+  "rørdrum","sort stork","hvid stork","trane","blishøne","vandrikse",
+  "rørhøne","knopsvane","sangsvane","pibesvane","gråand","krikand",
+  "skeand","spidsand","atlingand","hvinand","troldand","toppet skallesluger",
+  "lille skallesluger","stor skallesluger","ederfugl","havlit",
+  "sortand","fløjlsand","bjergand","kongeederfugl","rødhalset lom",
+  "sortstrubet lom","hvidnæbbet lom"
+]
 
 function preload(){
 
@@ -52,7 +85,7 @@ function setup(){
     listeContainer = select('#listeContainer')
 
     //der er et input felt en container og en knap til at tilføje nye elementer på siden.
-    createElever(klassen2T, listeContainer)
+    createList(klassen2T, listeContainer, 'elev')
 
     //Sørg for at indsætte Astrid når der trykkes på knappen
     listeButton.mousePressed( () => {
@@ -65,6 +98,37 @@ function setup(){
         }
         listeInput.value('')
     })
+
+    //Page 3
+    //DOM binding
+    removeListe = select('#removeListe')
+    //make a list
+    var elements = ["hest", "dog", "hamster", "php", "cangaroo", "fuck", "subway sandwich", "group rat", "bird"]
+    //call the generic function that makes new html elemnets
+    createList(elements, removeListe, 'removeVictim', removeListItem)
+
+
+    //page 4 - filter stuff (birds)
+    //DOM binding
+    var birdContainer = select('#birdContainer')
+    var birdInp = select('#birdInp')
+    createList(fugle, birdContainer, 'bird', )
+    birdInp.input (()=>{
+        console.log(birdInp.value())
+        var filterBirds = fugle.filter( f => {
+            return f.includes( birdInp.value())
+            //Er der inde i f (en eller anden fugl), det der er i input feltet????
+        } )
+        //Nu er det nye array filterBirds fyldt med fugle der indeholder bogstaver fra input feltet
+        if(filterBirds.length > 0){
+            createList(filterBirds, birdContainer, 'bird')
+        }else{
+            var feedback = createElement('h2', "Bird not found")
+            birdContainer.html("")
+            birdContainer.child(feedback)
+        }
+    })
+
 
     //Sæt menu op
     // hent alle sider som et array
@@ -93,13 +157,27 @@ function shiftPage(newPage){
 }
 
 //tager to argumenter - hvilken liste den skal gøre noget med og hvor den skal gøre af resultatet
-function createElever(list, dest){
+function createList(list, dest, className, action){
     //Først søger vi for at der er tomt i containeren
     dest.html('')
-        list.map( e =>{
+        list.map( (e, index) =>{
             var div = createDiv(e)
-            div.addClass('elev')
+            div.addClass(className)
+            //Hvis der er en action i argumenterne - så gør noget
+            if(action){
+                div.mousePressed(()=>{   
+                    action(div, index, list)
+                })
+
+            }
             dest.child(div)
     })
 }
 
+function removeListItem(who, index, list){
+        who.style('background-image', `url('./assets/consent.jpg')`)
+        setTimeout(()=>{
+            list.splice(index, 1)
+            createList(list, removeListe, 'removeVictim', removeListItem)
+        }, 800)
+}

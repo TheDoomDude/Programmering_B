@@ -31,8 +31,43 @@
                 <input type="text" id="listeInput">
                 <button id="listeButton">Push</button>
             </span>
-            <div id="listeContainer"></div>
+            <div class="container" id="listeContainer"></div>
         </div>
+        <div class="page" id="page3" title="Remove Items">
+                <pre>
+                    <code>
+                        <h2>Man fjerner elementer i et array med funktionen splice()</h2>
+                        <p>For eksempel dette array: var liste = ["john,", "Paul", "Ringo", "George"]
+                            liste.splice(0,1)
+                        </p>
+                    </code>
+
+
+                </pre>
+
+            <div class="container" id="removeListe">
+
+            </div>
+        </div>
+
+        <div class="page" id="page4" title="Array filter">
+            <pre>
+                <code>
+                    Man kan filtrerer et array med funktion filter
+                    var names = ["Simon", "Silas", "Sune", "Seimi", "Selma", "Sebastian"] 
+                    var namesWithA = names.filter( n => {
+                        return n.includes('a')
+                    })
+                    console.log(namesWithA) // ["Silas", "Selma"]
+                </code>
+
+            </pre>
+            <input type="text" id="birdInp">
+            <div id="birdContainer"></div>
+
+        </div>
+
+
     </main>
     <script src="./index.js"></script>
 </body>
