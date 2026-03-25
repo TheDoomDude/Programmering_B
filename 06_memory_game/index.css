@@ -11,6 +11,12 @@ body,
 
 }
 
+@keyframes matchAnimation {
+    0% {clip-path: circle(0% at 50% 50%); scale: 1;}
+    50% {clip-path: circle(50% at 50% 50%); scale: 1.1;}
+    100% {clip-path: circle(100% at 50% 50%); scale: 1;}
+}
+
 
 .page {
     width: 100vw;
@@ -79,4 +85,10 @@ h1 {
     object-fit: cover;
     opacity: 0;
     transition: all .3s ease-in-out;
+}
+
+.card.matched .back {
+    transform: rotateY(180deg);
+    opacity: 0.75;
+    animation: matchAnimation 8s fowards;
 }
