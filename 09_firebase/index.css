@@ -11,6 +11,13 @@ body,
 
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
 .page {
     width: 100vw;
     height: auto;
@@ -49,3 +56,32 @@ body,
     max-width: 1200px;
 }
 
+.quoteBox{
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    font-size: 1.1rem;
+    color: #333;
+    position: relative;
+}
+
+.date {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: bold;
+}
+
+.delete{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.delete:hover{
+    filter: brightness(0.8);
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}   
