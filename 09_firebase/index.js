@@ -20,6 +20,8 @@ function setup(){
                 createDiv().addClass('card').child(
                     createDiv(d.text)
                 ).child(
+                    createDiv(d.author).addClass('author')
+                ).child(
                     createDiv(d.timestamp.toDate().toLocaleDateString("da-DK", {
                         year: 'numeric',
                         month: 'long',
@@ -46,6 +48,7 @@ function keyPressed(){
         if(key == "Enter"){
             //hent teksten fra input feltet
             var q = select('#newQuote').value()
+            var author = select('#authorInput').value()
             if(q == "") {
                 confirm("Du skal skrive noget i feltet før du trykker enter")
                 return
@@ -55,6 +58,7 @@ function keyPressed(){
             //Opretter en ny collecntion hvis den ikke findes
             quotesRef.add({
                 text: q,
+                author: author,
                 timestamp: firebase.firestore.FieldValue.serverTimestamp()
                 //.then kaldes asynkront når add er færdig
             }).then(
@@ -62,5 +66,6 @@ function keyPressed(){
             )
             
             select('#newQuote').html('')
+            select('#authorInput').html('')
         }
 }
